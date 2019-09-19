@@ -1,6 +1,7 @@
 package com.lambdaschool.school.service;
 
 import com.lambdaschool.school.SchoolApplication;
+import com.lambdaschool.school.model.Course;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,5 +54,16 @@ public class CourseServiceImplTest {
     public void deleteNotFound() {
         courseService.delete(100);
         assertEquals(5, courseService.findAll().size());
+    }
+
+    @Test
+    public void save() {
+        Course newCourse = new Course("AI");
+        Course addCourse = courseService.save(newCourse);
+        assertNotNull(addCourse);
+
+        Course foundCourse = courseService.findCourseById(addCourse.getCourseid());
+        assertEquals(addCourse.getCoursename(), foundCourse.getCoursename());
+
     }
 }

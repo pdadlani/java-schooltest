@@ -13,5 +13,7 @@ public interface CourseService
 
     ArrayList<CountStudentsInCourses> getCountStudentsInCourse();
 
+    Course save(Course course);
+
     void delete(long id);
 }
