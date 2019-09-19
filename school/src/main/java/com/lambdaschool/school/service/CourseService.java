@@ -9,7 +9,11 @@ public interface CourseService
 {
     ArrayList<Course> findAll();
 
+    Course findCourseById(long id);
+
     ArrayList<CountStudentsInCourses> getCountStudentsInCourse();
+
+    Course save(Course course);
 
     void delete(long id);
 }
